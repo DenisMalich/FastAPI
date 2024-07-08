@@ -14,13 +14,12 @@
         <nav>
             <ul>
                 <li><a href="{{ url_for('index') }}">Главная</a></li>
-                <li><a href="{{ url_for('category', cat='cats') }}">Кошки</a></li>
-                <li><a href="{{ url_for('category', cat='dogs') }}">Собаки</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        {% block content %}{% endblock %}
+        {% block content %}
+        {% endblock %}
     </main>
     <footer>
         <p>&copy; 2024 ВетГид</p>

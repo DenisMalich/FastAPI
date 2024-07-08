@@ -1,25 +1,10 @@
-<!-- templates/index.html -->
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}Главная - ВетГид{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>ВетГид - Вход</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-
-<body>
-    <div class="container">
-        <h1>Вход</h1>
-        <form action="/setcookie" method="POST">
-            <label for="nm">Имя:</label>
-            <input type="text" id="nm" name="nm"><br><br>
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email"><br><br>
-            <input type="submit" value="Отправить">
-        </form>
-    </div>
-</body>
-
-</html>
+{% block content %}
+<h2>Добро пожаловать в ВетГид!</h2>
+<p>Здесь вы можете найти все необходимые товары для ваших питомцев.</p>
+<p>Мы предлагаем широкий ассортимент товаров для кошек, собак и других животных.</p>
+<p>Присоединяйтесь к нашему сообществу и узнавайте первыми о новинках и акциях!</p>
+{% endblock %}

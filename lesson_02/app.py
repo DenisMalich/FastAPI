@@ -1,5 +1,3 @@
-# app.py
-
 from flask import Flask, render_template, request, redirect, url_for, make_response
 
 app = Flask(__name__)
@@ -7,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('login.html')
 
 
 @app.route('/setcookie', methods=['POST'])
@@ -23,7 +21,8 @@ def setcookie():
 @app.route('/greeting')
 def greeting():
     user = request.cookies.get('userName')
-    if not user:
+    email = request.cookies.get('userEmail')
+    if not user or not email:
         return redirect(url_for('index'))
     return render_template('greeting.html', user=user)
 
