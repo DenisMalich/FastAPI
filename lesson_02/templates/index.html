@@ -1,20 +1,25 @@
+<!-- templates/index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>ВетГид - Вход</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
 <body>
-    <h1>Вход</h1>
-    <form action="/setcookie" method="POST">
-        <label for="nm">Имя:</label>
-        <input type="text" id="nm" name="nm"><br><br>
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email"><br><br>
-        <input type="submit" value="Отправить">
-    </form>
+    <div class="container">
+        <h1>Вход</h1>
+        <form action="/setcookie" method="POST">
+            <label for="nm">Имя:</label>
+            <input type="text" id="nm" name="nm"><br><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email"><br><br>
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
 </body>
 
 </html>

@@ -1,18 +1,13 @@
+# app.py
+
 from flask import Flask, render_template, request, redirect, url_for, make_response
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'
 
 
 @app.route('/')
 def index():
     return render_template('index.html')
-
-
-@app.route('/category/<cat>')
-def category(cat):
-    # Здесь можно обрабатывать разные категории товаров
-    return render_template('category.html', category=cat)
 
 
 @app.route('/setcookie', methods=['POST'])
@@ -28,8 +23,7 @@ def setcookie():
 @app.route('/greeting')
 def greeting():
     user = request.cookies.get('userName')
-    email = request.cookies.get('userEmail')
-    if not user or not email:
+    if not user:
         return redirect(url_for('index'))
     return render_template('greeting.html', user=user)
 

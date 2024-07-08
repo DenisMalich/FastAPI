@@ -1,14 +1,21 @@
+<!-- templates/greeting.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>ВетГид - Приветствие</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
 <body>
-    <h1>Привет, {{ user }}!</h1>
-    <a href="/logout">Выйти</a>
+    <div class="container">
+        <h1>Привет, {{ user }}!</h1>
+        <form action="{{ url_for('logout') }}" method="get">
+            <input type="submit" value="Выйти">
+        </form>
+    </div>
 </body>
 
 </html>
