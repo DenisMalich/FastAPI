@@ -13,9 +13,9 @@
         <h1>ВетГид - Гипермаркет товаров для животных</h1>
         <nav>
             <ul>
-                <li><a href="/">Главная</a></li>
-                <li><a href="/category/cats">Кошки</a></li>
-                <li><a href="/category/dogs">Собаки</a></li>
+                <li><a href="{{ url_for('index') }}">Главная</a></li>
+                <li><a href="{{ url_for('category', cat='cats') }}">Кошки</a></li>
+                <li><a href="{{ url_for('category', cat='dogs') }}">Собаки</a></li>
             </ul>
         </nav>
     </header>
