@@ -31,7 +31,7 @@ def read_root():
             <title>Task Management API</title>
         </head>
         <body>
-            <h1>Welcome to the Task Management API</h1>
+            <h1>Добро пожаловать в Task Management API</h1>
             <p>Available commands:</p>
             <ul>
                 <li>
