@@ -2,8 +2,6 @@ from sqlalchemy.orm import Session
 from models import User, Product, Order
 from schemas import UserCreate, ProductCreate, OrderCreate
 
-# CRUD for Users
-
 
 def create_user(db: Session, user: UserCreate):
     db_user = User(**user.dict())
@@ -28,8 +26,6 @@ def delete_user(db: Session, user_id: int):
         db.commit()
     return db_user
 
-# CRUD for Products
-
 
 def create_product(db: Session, product: ProductCreate):
     db_product = Product(**product.dict())
@@ -53,8 +49,6 @@ def delete_product(db: Session, product_id: int):
         db.delete(db_product)
         db.commit()
     return db_product
-
-# CRUD for Orders
 
 
 def create_order(db: Session, order: OrderCreate):

@@ -6,14 +6,10 @@ from schemas import *
 
 app = FastAPI()
 
-# Initialize the database
-
 
 @app.on_event("startup")
 def on_startup():
     init_db()
-
-# Dependency
 
 
 def get_db():
@@ -23,14 +19,10 @@ def get_db():
     finally:
         db.close()
 
-# Root endpoint
-
 
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the online store API"}
-
-# User endpoints
 
 
 @app.post("/users/", response_model=User)
@@ -58,8 +50,6 @@ def delete_user_endpoint(user_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="User not found")
     return db_user
 
-# Product endpoints
-
 
 @app.post("/products/", response_model=Product)
 def create_product_endpoint(product: ProductCreate, db: Session = Depends(get_db)):
@@ -85,8 +75,6 @@ def delete_product_endpoint(product_id: int, db: Session = Depends(get_db)):
     if db_product is None:
         raise HTTPException(status_code=404, detail="Product not found")
     return db_product
-
-# Order endpoints
 
 
 @app.post("/orders/", response_model=Order)
