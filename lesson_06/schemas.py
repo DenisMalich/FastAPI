@@ -1,6 +1,8 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, ConfigDict
 from typing import List, Optional
 from datetime import datetime
+
+# Схемы для пользователей
 
 
 class UserBase(BaseModel):
@@ -13,16 +15,20 @@ class UserCreate(UserBase):
     password: str
 
 
-class User(UserBase):
+class UserResponse(UserBase):
     id: int
 
     class Config:
-        orm_mode = True
+        model_config = {
+            'from_attributes': True
+        }
+
+# Схемы для товаров
 
 
 class ProductBase(BaseModel):
     name: str
-    description: str
+    description: Optional[str] = None
     price: float
 
 
@@ -30,11 +36,15 @@ class ProductCreate(ProductBase):
     pass
 
 
-class Product(ProductBase):
+class ProductResponse(ProductBase):
     id: int
 
     class Config:
-        orm_mode = True
+        model_config = {
+            'from_attributes': True
+        }
+
+# Схемы для заказов
 
 
 class OrderBase(BaseModel):
@@ -48,8 +58,10 @@ class OrderCreate(OrderBase):
     pass
 
 
-class Order(OrderBase):
+class OrderResponse(OrderBase):
     id: int
 
     class Config:
-        orm_mode = True
+        model_config = {
+            'from_attributes': True
+        }
